@@ -1,0 +1,5 @@
+#!/bin/bash
+
+find . -name "*.dat" -exec cp '{}' '{}'.raw \; ;
+find . -name "*.raw" -exec sox -r 44100 -e signed-integer --endian big -b 16 -c 1 '{}' '{}'.wav silence 1 0.001 1% fade 0 64s 8s \;
+rm *.raw *.dat;

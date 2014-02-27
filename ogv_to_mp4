@@ -1,0 +1,6 @@
+#! /bin/bash
+
+for FILE in *.ogv;
+do
+	ffmpeg -i "$FILE" -vcodec libx264 -acodec libmp3lame -ac 2 -ar 44100 -f mp4 "${FILE%.*}.mp4";
+done
